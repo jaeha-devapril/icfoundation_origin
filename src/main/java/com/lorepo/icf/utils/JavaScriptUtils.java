@@ -375,6 +375,12 @@ public class JavaScriptUtils {
 
 	private native static JsArray<JavaScriptObject> getContentScale() /*-{
 		var $content = $wnd.$("#content"); // the div transform css is attached to
+		
+		// 이석웅 추가
+		if( $content.size() == 0 ){
+			var $content = $wnd.$("#_icplayer"); 
+		}
+		
 		if($content.size()>0){
             var contentElem = $content[0];
             var scaleX = contentElem.getBoundingClientRect().width / contentElem.offsetWidth;
