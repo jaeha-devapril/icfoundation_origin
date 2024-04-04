@@ -14,6 +14,7 @@ public class BasicPropertyProvider implements IPropertyProvider {
 	private List<IProperty>	properties = new ArrayList<IProperty>();
 	private List<IPropertyListener>	propertyListeners = new ArrayList<IPropertyListener>();
 	private final String name;
+	protected String defaultLayoutID = "default";
 	
 	
 	public BasicPropertyProvider(String name){

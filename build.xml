@@ -30,7 +30,7 @@
     <mkdir dir="war/WEB-INF/classes"/>
     <javac srcdir="${src}" includes="**" encoding="utf-8"
         destdir="war/WEB-INF/classes"
-        source="1.6" target="1.6" nowarn="true"
+        source="1.7" target="1.7" nowarn="true"
     	includeantruntime="false"
         debug="true" debuglevel="lines,vars,source">
       <classpath refid="project.class.path"/>
@@ -44,7 +44,7 @@
   <target name="javac.tests" depends="javac" description="Compiles test code">
 
     <javac srcdir="${src-test}" includes="**" encoding="utf-8"
-      source="1.6" target="1.6" nowarn="true"
+      source="1.7" target="1.7" nowarn="true"
 	  includeantruntime="false"
       destdir="war/WEB-INF/classes"
       debug="true" debuglevel="lines,vars,source">
