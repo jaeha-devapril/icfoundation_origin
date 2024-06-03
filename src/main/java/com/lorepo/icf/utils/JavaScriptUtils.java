@@ -170,7 +170,7 @@ public class JavaScriptUtils {
 			return @com.lorepo.icf.utils.JavaScriptUtils::getContentScale()();
 		});
 		var scale = {X:1.0, Y:1.0};
-		
+
 		var $element = $wnd.$(e), elementWidth = $element.width(), elementHeight = $element.height();
 		var helperOriginalPosition = {top:0.0, left:0.0};
 		var firstIteration = true;
@@ -181,6 +181,13 @@ public class JavaScriptUtils {
 			helper: "clone",
 			start : function(event, ui) {
 				scale = getContentScale();
+				if($wnd.$('#scaleable-wrapper')[0] != undefined){
+					var newScale = parseFloat($wnd.$('#scaleable-wrapper')[0].style.transform.match(/scale\(([^)]+)\)/)[1]);
+					if(!isNaN(newScale)){
+						scale.X = newScale;
+						scale.Y = newScale
+					}
+				}
 				helperOriginalPosition.left = ui.originalPosition.left/scale.X;
 				helperOriginalPosition.top = ui.originalPosition.top/scale.Y;
 				firstIteration = true;
@@ -218,6 +225,13 @@ public class JavaScriptUtils {
 				jsObject.setDragMode();
 			},
 			drag : function(event, ui) {
+                if($wnd.$('#scaleable-wrapper')[0] != undefined){
+					var newScale = parseFloat($wnd.$('#scaleable-wrapper')[0].style.transform.match(/scale\(([^)]+)\)/)[1]);
+					if(!isNaN(newScale)){
+						scale.X = newScale;
+						scale.Y = newScale
+					}
+				}
 				if(firstIteration){
 					ui.originalPosition.left = helperOriginalPosition.left;
 		        	ui.originalPosition.top = helperOriginalPosition.top;
